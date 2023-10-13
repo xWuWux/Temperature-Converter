@@ -1,0 +1,26 @@
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class TCTest {
+    private TC temperatureConverter;
+
+    @BeforeEach
+    public void setUp() {
+        temperatureConverter = new TC("Temperature Converter");
+        temperatureConverter.setComp();
+    }
+
+    @Test
+    public void testCelsiusToFahrenheitConversion() {
+        // Set input value in Celsius
+        temperatureConverter.t1.setText("25");
+
+        // Trigger the conversion
+        temperatureConverter.b.doClick();
+
+        // Check if the converted value is correct
+        // The expected result for 25°C to Fahrenheit is approximately 77.0
+        assertEquals("77.0", temperatureConverter.t2.getText());
+    }
+}
